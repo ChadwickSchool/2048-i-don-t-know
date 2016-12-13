@@ -88,6 +88,7 @@ document.onkeydown = function(e) {
     printBoard(); //have to recall print board to get the board to update
 };
 
+//r stands for row, c stands for column
 function moveTilesUp()
 {
     
@@ -106,27 +107,7 @@ function moveTilesUp()
     }   
     
 }
-//r stands for row, c stands for column
 
-
-function moveTilesDown()
-{
-    
-    for(var r=3; r > 0; r--)
-    {
-        for(var c=0; c < grid[r].length; c++)
-        {
-            if(r !== 3  && grid[r][c] !== "x" && grid[r+1][c] === "x")
-            {
-                grid[r+1][c] = grid[r][c];
-                grid[r][c] = "x";
-            }
-            
-        }
-        
-    }   
-    
-}
 
 function moveTilesLeft()
 {
@@ -147,13 +128,32 @@ function moveTilesLeft()
     
 }
 
+function moveTilesDown()
+{
+    
+    for(var r=3; r >= 0; r--)
+    {
+        for(var c=0; c < grid[r].length; c++)
+        {
+            if(r !== 3  && grid[r][c] !== "x" && grid[r+1][c] === "x")
+            {
+                grid[r+1][c] = grid[r][c];
+                grid[r][c] = "x";
+            }
+            
+        }
+        
+    }   
+    
+}
+
 
 function moveTilesRight()
 {
     
     for(var r=0; r < grid.length; r++)
     {
-        for(var c=3; c > 0; c--)
+        for(var c=3; c >= 0; c--)
         {
             if(c !== 3  && grid[r][c] !== "x" && grid[r][c+1] === "x")
             {
