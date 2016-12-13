@@ -24,26 +24,39 @@ function setUpBoard(){
 	}
 	
 	addTile();
+    addTile();
+
 	
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function addTile() {
 	//place a 2 on a random spot in the board	
 	var x = Math.round(Math.random()*3);
 	var y = Math.round(Math.random()*3);
-	grid[x][y] = "2";
+    getrandomInt(0,4);
+    //if (getrandomInt = 3) {
+    //    grid[x][y] = "4";
+    //}
+
+    //else {
+        grid[x][y] = "2";   
+    //}
 }
 	
 
 function printBoard(){
-	var board = '<br/>' + "*--------------*" + '<br/>';
+	var board = '<br/>' + "+--------------+" + '<br/>';
 	for(var i=0; i<grid.length; i++){
 		board += "|   ";
 		for(var j=0; j<grid[i].length; j++){
 			board += grid[i][j] + "   |   ";
 		}
 		board += '<br/>';
-		board += "*--------------*";
+		board += "+--------------+";
 		board += '<br/>';
 	}
 	
@@ -65,8 +78,8 @@ document.onkeydown = function(e) {
     //to use triple equals sign 
     if (e.keyCode == UP_ARROW) {
         // up arrow
-        moveTilesUp();
-        
+        console.log("Pressed up");
+        moveTilesUp(); 
     }
     //double equals sign will convert it for us 
     else if (e.keyCode == DOWN_ARROW) {
