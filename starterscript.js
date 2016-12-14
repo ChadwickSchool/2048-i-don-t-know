@@ -13,6 +13,7 @@ $(document).ready(function(){
 });
 
 function setUpBoard(){
+    var randInt = getRandomInt(0,4)
 
 	// initialize board to have no values
 	for(var i=0; i<4; i++){
@@ -22,29 +23,33 @@ function setUpBoard(){
 		}
 		grid.push(innergrid);
 	}
-	
-	addTile();
-    addTile();
+
+	if (randInt === 2) {
+       addTile4;
+    }
+    else {
+        addTile2;
+    }
 
 	
 }
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+     print Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function addTile() {
+function addTile4() {
+    //place a 4 on a random spot in the board   
+    var x = Math.round(Math.random()*3);
+    var y = Math.round(Math.random()*3);
+    grid[x][y] = "4";
+}
+
+function addTile2() {
 	//place a 2 on a random spot in the board	
 	var x = Math.round(Math.random()*3);
 	var y = Math.round(Math.random()*3);
-    getrandomInt(0,4);
-    //if (getrandomInt = 3) {
-    //    grid[x][y] = "4";
-    //}
-
-    //else {
-        grid[x][y] = "2";   
-    //}
+    grid[x][y] = "2";
 }
 	
 
