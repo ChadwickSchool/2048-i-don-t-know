@@ -23,11 +23,11 @@ function setUpBoard(){
 		grid.push(innergrid);
 	}
 	
-	addTile();
+	addTile2();
 	
 }
 
-function addTile() {
+function addTile2() {
 	//place a 2 on a random spot in the board	
 	var x = Math.round(Math.random()*3);
 	var y = Math.round(Math.random()*3);
