@@ -14,24 +14,32 @@ $(document).ready(function(){
 
 function setUpBoard(){
 
-	// initialize board to have no values
-	for(var i=0; i<4; i++){
-		var innergrid = [];
-		for(var j=0; j<4; j++){
-			innergrid.push("x");
-		}
-		grid.push(innergrid);
-	}
-	
-	addTile2();
-	
+    // initialize board to have no values
+    for(var i=0; i<4; i++){
+        var innergrid = [];
+        for(var j=0; j<4; j++){
+            innergrid.push("x");
+        }
+        grid.push(innergrid);
+    }
+    
+    addTile();
+    addTile();
+    
 }
 
-function addTile2() {
-	//place a 2 on a random spot in the board	
-	var x = Math.round(Math.random()*3);
-	var y = Math.round(Math.random()*3);
-	grid[x][y] = "2";
+function addTile() {
+    //place a 2 on a random spot in the board    
+    var x = Math.round(Math.random()*3);
+    var y = Math.round(Math.random()*3);
+    var z = Math.random()
+    if (z >= (2/3)) {
+        grid[x][y] = "4";
+    }
+    else {
+        grid[x][y] = "2";
+    }
+    console.log(z)
 }
 	
 
@@ -73,6 +81,7 @@ document.onkeydown = function(e) {
         // down arrow
         console.log("Pressed down");
         moveTilesDown();
+
     }
     else if (e.keyCode == LEFT_ARROW) {
        // left arrow
@@ -87,6 +96,16 @@ document.onkeydown = function(e) {
     
     printBoard(); //have to recall print board to get the board to update
 };
+
+function CombineTilesUp()
+{ 
+    for(var r=0; r < grid.length; r++)
+    {
+        for(var c=0; c<grid[r].length; c++)
+        {
+            
+
+}
 
 //r stands for row, c stands for column
 function moveTilesUp()
@@ -108,6 +127,9 @@ function moveTilesUp()
     
 }
 
+function CombineTilesLeft(){
+
+}
 
 function moveTilesLeft()
 {
@@ -126,6 +148,10 @@ function moveTilesLeft()
         
     }   
     
+}
+
+function CombineTilesDown(){
+
 }
 
 function moveTilesDown()
@@ -147,6 +173,9 @@ function moveTilesDown()
     
 }
 
+function CombineTilesRight(){
+
+}
 
 function moveTilesRight()
 {
